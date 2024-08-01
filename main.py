@@ -3,8 +3,8 @@ import random
 import matplotlib.pyplot as plt
 
 class TicTacToe:
-    win_reward = 100
-    lose_reward = -100
+    win_reward = 1
+    lose_reward = -1
     draw_reward = 0
 
     def __init__(self):
@@ -70,7 +70,7 @@ class TicTacToe:
     def alternate_turn(self, player):
         return 'X' if player == 'O' else 'O'
 
-    def q_learning(self, episodes=50000, epsilon=0.5, discount_factor=0.9, learning_rate=0.01, min_epsilon=0.1, decay_rate=0.99):
+    def q_learning(self, episodes=50000, epsilon=0.5, discount_factor=0.9, learning_rate=0.001, min_epsilon=0.1, decay_rate=0.9):
         print(f"Training {episodes} times...")
         
         # For monitoring convergence
@@ -149,7 +149,7 @@ class TicTacToe:
         plt.tight_layout()
         plt.show()
 
-    def save_q_values(self, filename='q_values.npy'):
+    def save_q_values(self, filename='/Users/Justin Wang/Desktop/TicTacToeBot/q_values.npy'):
         np.save(filename, self.q_values)
         print(f"Q-values saved to {filename}")
 
@@ -199,9 +199,9 @@ class TicTacToe:
 tic_tac_toe = TicTacToe()
 
 # Train and save Q-values
-tic_tac_toe.q_learning()
-tic_tac_toe.save_q_values()
+#tic_tac_toe.q_learning()
+#tic_tac_toe.save_q_values()
 
 # To play later, load the Q-values
-#tic_tac_toe.load_q_values()
-#tic_tac_toe.play()
+tic_tac_toe.load_q_values()
+tic_tac_toe.play()
