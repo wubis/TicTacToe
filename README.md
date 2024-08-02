@@ -1,7 +1,7 @@
 # TicTacToe
-TicTacToe Reinforcement Learning Bot
+TicTacToe Reinforcement Learning Bot utilizing Q-Learning methods
 
-# How The Code Works
+# How It Works
 ### 1. Initialization
   - def init() initializes class TicTacToe and defines rewards for winning, losing, and drawing
     - Randomly initialized Q-values for each state action pair on the 3x3 board from 0 to 1 (3x3 board, 9 possible actions)
@@ -41,3 +41,16 @@ TicTacToe Reinforcement Learning Bot
   - def play() allows the human player to interact with the agent
   - Human player inputs moves while the agent inputs moves based on the saved Q-table
   - Actions are looped until either the player or the agent wins
+
+# Future Improvements
+### 1. Advanced Reward System
+  - Rewarding advantageous positioning and punishing disadvantageous positioning
+  - Examples:
+    - Leaving open a human player position with two in a row -> punishment
+    - Setting up agent position with two in a row -> reward
+### 2. Set Start Positions
+  - Setting up each training episode with a different designated cell spot each time instead of randomizing to allow for more efficient learning
+  - Example: dividing training episodes into 9 parts, each at a different coordinate
+
+### 3. Fine Tuning Parameters
+  - Experimenting with different Q-Learning parameters to optimize convergence and rewards
